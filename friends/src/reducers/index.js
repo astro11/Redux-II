@@ -1,12 +1,16 @@
 import { FETCHED, FETCHING, ERROR } from '../actions';
-// importing actions
+import { ADDED, ADDING, ADDERROR } from '../actions';
 
-// pieces of state that we need
 const initialState = {
   friends: [],
+  fetched: false,
   fetching: false,
   error: null,
+  adding: false,
+  added: false,
+  adderror: null,
 }
+
 
 export default (state = initialState, action) => {
   switch(action.type) {
@@ -15,7 +19,13 @@ export default (state = initialState, action) => {
       case ERROR:
       return { ...state, error: action.errorMessage }
     case FETCHED:
-      return { ...state, friends: action.friends, fetching: false, error: null } //otherwise will continue to show data
+      return { ...state, friends: action.friends, fetching: false, error: null } 
+    case ADDING:
+      return { ...state, adding: true }
+    case ADDERROR:
+      return { ...state, adderror: action.errorMessage }
+    case ADDED:
+      return { ...state, added: true }
     default:
     return state;
   }
