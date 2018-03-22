@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { addFriends } from '../actions';
 
-class addFriends extends Component {
+class Add extends Component {
     componentDidMount() {
       this.props.addFriends();
   
@@ -27,4 +27,4 @@ class addFriends extends Component {
     };
   };
   
-  export default connect(mapStateToProps, { addFriends })(App);
+  export default connect(mapStateToProps, { addFriends })(Add);

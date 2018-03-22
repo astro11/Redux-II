@@ -13,10 +13,18 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+      <h1>List of Friends</h1>
+      <h6>well hello there...Redux</h6>
+      <form className="form">
+        <label>Name: <input type="text" placeholder="Name of friend"/></label>
+        <label>Age: <input type="text" placeholder="Age of friend"/></label>
+        <label>Email: <input type="text" placeholder="Email of friend"/></label>
+        <button type="submit">Add Friend</button>
+      </form>
         {this.props.fetched ? (
           <img src={logo} className="App-logo" alt="logo" />
         ) : (
-          <ul>
+          <ul className="friend-list">
             {this.props.friends.map((friend, index) => {
               return <li key={index}><strong>{friend.name}</strong>, {friend.age}: {friend.email}</li>;              
             })}
